@@ -26,6 +26,19 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/linu
 chmod +x ./kubectl
 cp kubectl /usr/local/bin/kubectl
 
+# Install AWS CLI v2
+dnf install -y unzip
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+unzip awscliv2.zip
+
+./aws/install
+
+rm -rf aws awscliv2.zip
+
+aws --version
+
 
 # AWS CLI configure for ec2-user
 mkdir -p /home/ec2-user/.aws
@@ -54,3 +67,7 @@ sudo -u ec2-user /usr/local/bin/eksctl create cluster -f eksctl.yaml
 # Authenticate kubectl with the cluster
 sudo -u ec2-user aws eks update-kubeconfig --region us-east-1 --name roboshop
 sudo -u ec2-user /usr/local/bin/kubectl get nodes
+
+
+
+

@@ -9,5 +9,5 @@ managedNodeGroups:
   - name: managed
     instanceTypes: ["t3.medium","t3.large"]
     desiredCapacity: 2
-    spot: true
 
+1

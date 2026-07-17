@@ -10,4 +10,3 @@ managedNodeGroups:
     instanceTypes: ["t3.medium","t3.large"]
     desiredCapacity: 2
 
-1

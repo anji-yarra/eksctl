@@ -66,9 +66,11 @@ resource "terraform_data" "cluster_destroy" {
 
   provisioner "remote-exec" {
     when = destroy
+
     inline = [
-      "eksctl delete cluster -f /home/ec2-user/eksctl/eksctl.yaml --wait"
+      "eksctl delete cluster --name roboshop --region us-east-1 --wait"
     ]
+
     connection {
       type     = "ssh"
       host     = self.input.host
